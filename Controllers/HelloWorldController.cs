@@ -12,9 +12,24 @@ namespace BasicAPI.Controllers
     public class HelloWorldController : ControllerBase
     {
         [HttpGet]
-        public string SayHello()
+        public string SayHello(string who)
         {
-            return $"Hello, World. {DateTime.Now}";
+
+            // string whoOrWorld;
+
+            // if (who == null)
+            // {
+            //     whoOrWorld = "World";
+            // }
+            // else
+            // {
+            //     whoOrWorld = who;
+            // }
+
+            // better/cleaner way to write if/else 
+            string whoOrWorld = (who == null) ? "World" : who;
+
+            return $"Hello, {whoOrWorld}. It is currently {DateTime.Now}";
         }
     }
 }
